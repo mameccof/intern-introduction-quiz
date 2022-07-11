@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "name": "Question",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "richtext"
+    },
+    "choices1": {
+      "type": "string"
+    },
+    "choices2": {
+      "type": "string"
+    },
+    "choices3": {
+      "type": "string"
+    },
+    "choices4": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "richtext"
+    },
+    "selection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "selection.selection"
+    }
+  }
+}

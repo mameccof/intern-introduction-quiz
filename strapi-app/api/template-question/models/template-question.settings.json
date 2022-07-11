@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "template_questions",
+  "info": {
+    "name": "TemplateQuestion"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "template_id": {
+      "type": "uid"
+    },
+    "question": {
+      "type": "richtext"
+    },
+    "choices1": {
+      "type": "string"
+    },
+    "choices2": {
+      "type": "string"
+    },
+    "choices3": {
+      "type": "string"
+    },
+    "choices4": {
+      "type": "string"
+    }
+  }
+}

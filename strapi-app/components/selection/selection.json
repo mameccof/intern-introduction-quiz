@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_selection_selections",
+  "info": {
+    "name": "selection",
+    "icon": "angle-left"
+  },
+  "options": {},
+  "attributes": {
+    "sentence": {
+      "type": "string"
+    },
+    "is_correct": {
+      "type": "boolean"
+    }
+  }
+}
