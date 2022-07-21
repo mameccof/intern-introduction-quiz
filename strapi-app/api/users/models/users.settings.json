@@ -29,6 +29,15 @@
     },
     "affilition": {
       "type": "string"
+    },
+    "following": {
+      "collection": "users",
+      "via": "followers",
+      "dominant": true
+    },
+    "followers": {
+      "collection": "users",
+      "via": "following"
     }
   }
 }
