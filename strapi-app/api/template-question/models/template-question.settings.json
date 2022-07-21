@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "template_questions",
+  "info": {
+    "name": "TemplateQuestion",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "richtext"
+    },
+    "selection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "selection.selection"
+    }
+  }
+}

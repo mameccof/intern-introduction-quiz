@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tests",
+  "info": {
+    "name": "test"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "selection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "selection.selection"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "name": "Question",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "richtext"
+    },
+    "explanation": {
+      "type": "richtext"
+    },
+    "selection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "selection.selection"
+    }
+  }
+}
