@@ -1,0 +1,16 @@
+.profile-card{
+  width: 350px;
+  margin: 5%;
+}
+.flex{
+  display: flex;
+}
+.ptags{
+  margin-left: 8px;
+}
+.ptags p{
+  margin: 0;
+}
+.ptags > p{
+  border-bottom: solid 2px black;
+}

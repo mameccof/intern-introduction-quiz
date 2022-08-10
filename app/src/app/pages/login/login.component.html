@@ -1,0 +1,21 @@
+<div class="centering-objects">
+  <div class="mt-50per"></div>
+
+  <mat-form-field appearance="fill" class="basic-input">
+    <input matInput placeholder="メールアドレス" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="basic-input">
+    <mat-label>パスワード</mat-label>
+    <input matInput [type]="isHide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="isHide = !isHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isHide">
+      <mat-icon>{{isHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+    <div class="mt-50per mb-5per">
+      <button mat-raised-button class="basic-button" routerLink="/home" color="primary">ログイン</button>
+    </div>
+    <button mat-flat-button routerLink="/sign-up">新規登録はこちら</button>
+
+</div>

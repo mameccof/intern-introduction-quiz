@@ -1,0 +1,43 @@
+<div class="centering-objects">
+
+  <h1 class="left-alignment mt-5per">プロフィール情報</h1>
+
+  <mat-form-field appearance="fill"  class="basic-input">
+    <input matInput placeholder="名前" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill"  class="basic-input">
+    <input matInput placeholder="所属" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill"  class="basic-input">
+    <mat-label>生年月日</mat-label>
+    <input matInput type="date" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill"  class="basic-input">
+    <input matInput placeholder="出身地" type="text" required>
+  </mat-form-field>
+
+  <h1 class="left-alignment">ログイン情報</h1>
+
+  <mat-form-field appearance="fill"  class="basic-input">
+    <input matInput placeholder="メールアドレス" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="basic-input">
+    <mat-label>パスワード</mat-label>
+    <input matInput [type]="isHide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="isHide = !isHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isHide">
+      <mat-icon>{{isHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+    <div class="mt-10per">
+      <button mat-raised-button class="basic-button" routerLink="/home" color="primary">新規登録</button>
+    </div>
+    <div class="mt-3per">
+      <button mat-flat-button routerLink="/login">ログインはこちら</button>
+    </div>
+
+</div>
