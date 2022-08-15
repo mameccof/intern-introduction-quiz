@@ -15,18 +15,6 @@
     },
     "sort_num": {
       "type": "integer"
-    },
-    "selection1": {
-      "type": "string"
-    },
-    "selection2": {
-      "type": "string"
-    },
-    "selection3": {
-      "type": "string"
-    },
-    "selection4": {
-      "type": "string"
     }
   }
 }
