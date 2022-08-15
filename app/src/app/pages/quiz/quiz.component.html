@@ -11,7 +11,7 @@
   </h1>
 
   <ng-container *ngFor="let selection of selections">
-    <button mat-raised-button class="selection-button">{{selection}}</button>
+    <button mat-raised-button class="selection-button" [disabled]="selection === selectedSelection" (click)="onSelect(selection)">{{selection}}</button>
   </ng-container>
 
   <div class=" mt-10per">

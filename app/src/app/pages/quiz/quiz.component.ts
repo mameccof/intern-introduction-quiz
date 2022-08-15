@@ -7,10 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  selectedSelection?: string;
 
   selections: string[] = [
     "クラシック",
@@ -18,5 +15,15 @@ export class QuizComponent implements OnInit {
     "レゲエ",
     "J-POP",
   ]
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+
+  onSelect(selection: string): void {
+    this.selectedSelection = selection;
+  }
 
 }
