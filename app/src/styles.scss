@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: auto; }
+html, body {height: 100%}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: floralwhite;}
 
 h1{
@@ -9,7 +9,7 @@ h1{
 }
 
 .basic-button{
-  width: 300px;
+  width: 280px;
   height: 60px;
 }
 .small-button{
@@ -21,7 +21,7 @@ h1{
   margin-bottom: 0;
 }
 .basic-card{
-  width: 325px;
+  width: 300px;
   height: 200px;
   margin: 5%;
 }
@@ -33,7 +33,7 @@ h1{
   height: 92%;
 }
 .quiz-card{
-  width: 325px;
+  width: 300px;
   height: 25%;
   margin: 5%;
 }
