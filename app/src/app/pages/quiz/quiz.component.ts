@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -20,7 +21,6 @@ export class QuizComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 
   onSelect(selection: string): void {
     this.selectedSelection = selection;

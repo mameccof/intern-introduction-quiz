@@ -11,7 +11,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 })
 export class QuestionListComponent implements OnInit {
 
-  @Input() previewQuestions?:string[];
+  @Input() previewQuestions?:any[];
 
 
   constructor() { }
