@@ -38,6 +38,10 @@
     "followers": {
       "collection": "users",
       "via": "following"
+    },
+    "questions": {
+      "via": "user",
+      "collection": "question"
     }
   }
 }

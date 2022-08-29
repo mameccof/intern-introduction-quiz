@@ -2,9 +2,9 @@
   <div style="align-self: flex-start; margin-left: 18.75px; margin-top: 20px;">
     <button mat-raised-button routerLink="/profile-list" class="small-button">戻る</button>
   </div>
-  <app-profile-card style="margin-right: 10%;" [profile]="profile" ></app-profile-card>
+  <app-profile-card [profile]="profile" ></app-profile-card>
   <div style="width: 100%; text-align: center;" class="mt-10per">
-    <p>{{profile.name}}さんの</p>
+    <p>{{profile.user_name}}さんの</p>
     <p>クイズに挑戦する！</p>
   </div>
   <div class="mt-30per">

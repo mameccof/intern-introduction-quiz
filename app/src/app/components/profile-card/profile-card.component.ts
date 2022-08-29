@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Profile } from 'src/app/types/types';
+import { Profile, User } from 'src/app/types/types';
 
 @Component({
   selector: 'app-profile-card',
@@ -10,7 +10,7 @@ export class ProfileCardComponent implements OnInit {
 
   constructor() { }
 
-  @Input() profile?:Profile;
+  @Input() profile?:User;
   @Input() isEditProfile?:boolean;
 
   ngOnInit(): void {

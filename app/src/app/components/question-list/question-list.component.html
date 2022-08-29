@@ -2,7 +2,7 @@
 <div cdkDropList class="question-list" (cdkDropListDropped)="drop($event)">
   <div class="question-box" *ngFor="let question of previewQuestions index as i" cdkDrag>
     <p class="ellipsis">
-      Q{{i + 1}} {{question}}
+      {{question.id}} Q{{i + 1}} {{question.question}}
     </p>
     <div>
       <button mat-icon-button matSuffix routerLink="/edit-quiz">

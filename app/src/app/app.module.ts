@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
@@ -11,7 +10,6 @@ import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule }   from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
-
 
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
@@ -34,6 +32,10 @@ import { EditQuizComponent } from './pages/edit-quiz/edit-quiz.component';
 import { QuestionListComponent } from './components/question-list/question-list.component';
 import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
 import { IconDialogComponent } from './components/icon-dialog/icon-dialog.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 
@@ -71,6 +73,8 @@ import { IconDialogComponent } from './components/icon-dialog/icon-dialog.compon
     FormsModule,
     MatFormFieldModule,
     MatDialogModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

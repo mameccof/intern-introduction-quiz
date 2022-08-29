@@ -1,7 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from 'src/app/types/types';
+import { Profile, User } from 'src/app/types/types';
 import { MatDialog } from '@angular/material/dialog';
 import { QrDialogComponent } from '../../components/qr-dialog/qr-dialog.component';
+import { UserService } from '../../services/user.service';
+
+interface quiz{
+  question:string
+  explanation:string
+  selection: {
+    sentence:string
+    is_correct:boolean
+    sort_num:number
+  }[]
+}[]
 
 @Component({
   selector: 'app-home',
@@ -10,25 +21,26 @@ import { QrDialogComponent } from '../../components/qr-dialog/qr-dialog.componen
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  previewQuestions: any[] = []
+  loginUser!: User
+
+  constructor(
+    public dialog: MatDialog,
+    private userService: UserService,
+  ) { }
 
   ngOnInit(): void {
-  }
+    this.userService.getUser().subscribe(
+      user =>{
 
-  profile: Profile =
-  {
-    name:"吉田新",
-    birth_date:"2002/05/07",
-    birth_place:"福島県",
-    affilition:"国際情報工科自動車大学校",
-    icon_url:"https://material.angular.io/assets/img/examples/shiba2.jpg"
-  }
+        this.loginUser = user
+        if(this.loginUser.icon_url === undefined){
+          this.loginUser.icon_url = "https://material.angular.io/assets/img/examples/shiba2.jpg"
+        }
+        this.previewQuestions = this.loginUser.questions
 
-  previewQuestions: string[] = [
-    "私の好きな音楽ジャンルは？",
-    "私の飼っているペットは？",
-    "私の特技は？"
-  ]
+      });
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(QrDialogComponent, {
