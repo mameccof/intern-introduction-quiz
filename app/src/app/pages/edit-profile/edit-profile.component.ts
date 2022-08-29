@@ -15,6 +15,7 @@ export class EditProfileComponent implements OnInit {
   profile: User =
   {
     user_name:"吉田新",
+    password:'aiueo',
     birth_date:"2002/05/07",
     birth_place:"福島県",
     affilition:"国際情報工科自動車大学校",

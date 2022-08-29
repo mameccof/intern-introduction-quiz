@@ -21,9 +21,7 @@ interface quiz{
 })
 export class HomeComponent implements OnInit {
 
-
   previewQuestions: any[] = []
-
   loginUser!: User
 
   constructor(
@@ -31,22 +29,18 @@ export class HomeComponent implements OnInit {
     private userService: UserService,
   ) { }
 
-
   ngOnInit(): void {
     this.userService.getUser().subscribe(
       user =>{
 
         this.loginUser = user
-        console.log(this.loginUser)
         if(this.loginUser.icon_url === undefined){
           this.loginUser.icon_url = "https://material.angular.io/assets/img/examples/shiba2.jpg"
         }
         this.previewQuestions = this.loginUser.questions
 
-
       });
   }
-
 
   openDialog(): void {
     const dialogRef = this.dialog.open(QrDialogComponent, {
