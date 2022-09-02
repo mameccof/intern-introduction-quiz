@@ -15,14 +15,11 @@ const httpOptions = {
 })
 export class UserService {
 
-  private userUrl = 'http://localhost:1337/Users/1';  // Web APIのURL
+  private userUrl = 'http://localhost:1337/Users/7';  // Web APIのURL
 
   constructor(
     private http: HttpClient,
   ) { }
-
-
-
 
   /** サーバーからヒーローを取得する */
   getUser(): Observable<User> {
@@ -42,6 +39,10 @@ export class UserService {
 
     console.log(user);
     return this.http.post<User>("http://localhost:1337/Users", user);
+  }
+
+  deleteQuestion(questionId : number){
+    return this.http.delete<User>("http://localhost:1337/Questions/" + questionId);
   }
 
 }

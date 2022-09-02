@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { UserService } from '../../services/user.service';
+
 
 /**
  * @title Drag&Drop sorting
@@ -14,7 +16,9 @@ export class QuestionListComponent implements OnInit {
   @Input() previewQuestions?:any[];
 
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -23,5 +27,10 @@ export class QuestionListComponent implements OnInit {
     moveItemInArray(this.previewQuestions!, event.previousIndex, event.currentIndex);
   }
 
+  deleteQuestion(questionId:number){
+    this.userService.deleteQuestion(questionId).subscribe();
+    window.location.reload();
+
+  }
 
 }
