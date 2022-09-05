@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz.service';
 import { Question } from 'src/app/types/types';
 
@@ -42,15 +43,24 @@ export class EditQuizComponent implements OnInit {
 
   constructor(
     private quizService: QuizService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+    this.getQuiz();
   }
 
   registerQuiz(){
     this.quizService.registerQuiz(this.quiz).subscribe( q => {
       console.log(q);
     })
+  }
+
+  getQuiz(){
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.quizService.getQuiz(id).subscribe( quiz => {
+      console.log(quiz);
+    } );
   }
 
 }

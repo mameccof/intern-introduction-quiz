@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'start', component: StartComponent},
   { path: 'quiz', component: QuizComponent},
   { path: 'edit-profile', component: EditProfileComponent},
-  { path: 'edit-quiz', component: EditQuizComponent},
+  { path: 'edit-quiz/:id', component: EditQuizComponent},
 ];
 
 @NgModule({

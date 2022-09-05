@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Question } from '../types/types';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,10 @@ export class QuizService {
 
   registerQuiz(question: Question){
     return this.http.post<Question>("http://localhost:1337/Questions/", question);
+  }
+
+  getQuiz(id:number): Observable<Question> {
+
+    return this.http.get<Question>("http://localhost:1337/Questions/" + id);
   }
 }
