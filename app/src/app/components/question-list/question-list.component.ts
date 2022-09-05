@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
-import { UserService } from '../../services/user.service';
+import { QuizService } from '../../services/quiz.service';
 
 
 /**
@@ -17,7 +17,7 @@ export class QuestionListComponent implements OnInit {
 
 
   constructor(
-    private userService: UserService,
+    private quizService: QuizService,
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class QuestionListComponent implements OnInit {
   }
 
   deleteQuestion(questionId:number){
-    this.userService.deleteQuestion(questionId).subscribe( () => {
+    this.quizService.deleteQuestion(questionId).subscribe( () => {
       window.location.reload();
     });
 

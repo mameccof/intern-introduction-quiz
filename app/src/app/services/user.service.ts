@@ -22,12 +22,7 @@ export class UserService {
 
   addUser(user:any){
 
-    console.log(user);
     return this.http.post<User>("http://localhost:1337/Users", user);
-  }
-
-  deleteQuestion(questionId : number){
-    return this.http.delete<Question>("http://localhost:1337/Questions/" + questionId);
   }
 
 }

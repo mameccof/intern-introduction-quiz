@@ -10,6 +10,7 @@ export class ProfileListComponent implements OnInit {
 
   profileList: User[] = [
     {
+      id: 0,
       user_name:"吉田新",
       password:'aiueo',
       birth_date:"2002/05/07",
@@ -20,6 +21,7 @@ export class ProfileListComponent implements OnInit {
       questions:[],
     },
     {
+      id: 0,
       user_name:"厚海幸之介",
       birth_date:"2002/07/03",
       password:'aiueo',
@@ -30,6 +32,7 @@ export class ProfileListComponent implements OnInit {
       questions:[],
     },
     {
+      id: 0,
       user_name:"西條智捷",
       birth_date:"1836/01/03",
       birth_place:"福島県",
@@ -40,6 +43,7 @@ export class ProfileListComponent implements OnInit {
       questions:[],
     },
     {
+      id: 0,
       user_name:"須藤将也",
       birth_date:"2002/12/15",
       birth_place:"福島県",
