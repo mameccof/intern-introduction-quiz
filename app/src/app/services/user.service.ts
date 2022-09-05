@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { User } from '../types/types';
+import { User,Question} from '../types/types';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -42,7 +42,7 @@ export class UserService {
   }
 
   deleteQuestion(questionId : number){
-    return this.http.delete<User>("http://localhost:1337/Questions/" + questionId);
+    return this.http.delete<Question>("http://localhost:1337/Questions/" + questionId);
   }
 
 }

@@ -28,8 +28,9 @@ export class QuestionListComponent implements OnInit {
   }
 
   deleteQuestion(questionId:number){
-    this.userService.deleteQuestion(questionId).subscribe();
-    window.location.reload();
+    this.userService.deleteQuestion(questionId).subscribe( () => {
+      window.location.reload();
+    });
 
   }
 

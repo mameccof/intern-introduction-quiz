@@ -26,6 +26,9 @@
     "user": {
       "model": "users",
       "via": "questions"
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }

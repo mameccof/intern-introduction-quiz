@@ -1,17 +1,20 @@
-
 <div cdkDropList class="question-list" (cdkDropListDropped)="drop($event)">
-  <div class="question-box" *ngFor="let question of previewQuestions index as i" cdkDrag>
-    <p class="ellipsis">
-      {{question.id}} Q{{i + 1}} {{question.question}}
-    </p>
-    <div>
-      <button mat-icon-button matSuffix routerLink="/edit-quiz">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-icon-button matSuffix (click)="deleteQuestion(question.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
+  <div *ngIf="previewQuestions?.length === 0; else viewQuestions">
+    <p style="text-align:center">問題の登録がされていません。</p>
   </div>
-
+  <ng-template #viewQuestions>
+    <div class="question-box" *ngFor="let question of previewQuestions index as i" cdkDrag>
+      <p class="ellipsis">
+        Q{{i + 1}} {{question.question}}
+      </p>
+      <div>
+        <button mat-icon-button matSuffix routerLink="/edit-quiz">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button matSuffix (click)="deleteQuestion(question.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </ng-template>
 </div>
