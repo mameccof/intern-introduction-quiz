@@ -8,13 +8,20 @@ export interface Profile{
 
 export interface User{
   mailadress: string;
-  password:string;
+  password: string;
   user_name: string;
   birth_date: string;
   birth_place: string;
   affilition: string;
   icon_url: string;
   questions:any[]
+}
+
+export interface Question{
+  question: string;
+  explanation: string;
+  selection: object[];
+  order: number;
 }
 
 export const PROFILE: User =
