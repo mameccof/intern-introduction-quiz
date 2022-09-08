@@ -22,9 +22,15 @@ export interface Question{
   id?: number;
   question: string;
   explanation: string;
-  selection: object[];
+  selection: Selection[];
   order: number;
   user?: number;
+}
+
+export interface Selection{
+  sentence: string;
+  is_correct: boolean;
+  sort_num: number;
 }
 
 export const PROFILE: User =
