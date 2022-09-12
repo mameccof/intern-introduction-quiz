@@ -60,6 +60,7 @@ export class EditQuizComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.quizService.getQuiz(id).subscribe( quiz => {
       console.log(quiz);
+      this.quiz = quiz;
     } );
   }
 
