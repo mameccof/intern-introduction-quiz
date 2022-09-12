@@ -1,12 +1,23 @@
 .example-radio-group {
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
   align-items: flex-start;
 }
 
-.example-radio-button {
-  margin: 5px;
+.flex-spacer{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.self-ml-10per{
+  align-self: flex-start;
+  margin-left: 10%;
+}
+
+.mr-10per{
+  margin-right: 10%;
 }
 
 .basic-textarea{

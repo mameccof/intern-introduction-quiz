@@ -50,8 +50,16 @@ export class EditQuizComponent implements OnInit {
     this.getQuiz();
   }
 
+  // 登録ボタンにすでにregisterQuizを割り振っているが、こちらだとputではなくpostになる。
   registerQuiz(){
-    this.quizService.registerQuiz(this.quiz).subscribe( q => {
+    this.quizService.postQuiz(this.quiz).subscribe( q => {
+      console.log(q);
+    })
+  }
+
+  // 一時的にputを行うために別のメソッドを作成
+  putQuiz(){
+    this.quizService.putQuiz(this.quiz,37).subscribe( q => {
       console.log(q);
     })
   }
@@ -63,5 +71,13 @@ export class EditQuizComponent implements OnInit {
       this.quiz = quiz;
     } );
   }
+
+  setCorrect(i: number){
+    for(let selection of this.quiz.selection){
+      selection.is_correct = false;
+    }
+    this.quiz.selection[i].is_correct = true;
+  }
+
 
 }

@@ -16,12 +16,15 @@ export class QuizService {
     return this.http.delete<Question>("http://localhost:1337/Questions/" + questionId);
   }
 
-  registerQuiz(question: Question){
+  postQuiz(question: Question){
     return this.http.post<Question>("http://localhost:1337/Questions/", question);
   }
 
   getQuiz(id:number): Observable<Question> {
-
     return this.http.get<Question>("http://localhost:1337/Questions/" + id);
+  }
+
+  putQuiz(question: Question , questionId: number){
+    return this.http.put<Question>("http://localhost:1337/Questions/" + questionId, question);
   }
 }
