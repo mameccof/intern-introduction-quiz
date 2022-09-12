@@ -10,36 +10,34 @@ import { Question } from 'src/app/types/types';
 })
 export class EditQuizComponent implements OnInit {
 
-  selections: string[] = ['クラシック', 'K-POP', 'J-POP', 'ブルース'];
 
   quiz: Question = {
-
-    question: "nakamura nakamura san",
-    explanation: "kaisetu",
+    question: "",
+    explanation: "",
     selection: [
       {
-        sentence: "aaaa",
+        sentence: "",
         is_correct: false,
         sort_num: 1,
       },
       {
-        sentence: "bbbb",
+        sentence: "",
         is_correct: false,
         sort_num: 2,
       },
       {
-        sentence: "cccc",
+        sentence: "",
         is_correct: true,
         sort_num: 3,
       },
       {
-        sentence: "eeee",
+        sentence: "",
         is_correct: false,
         sort_num: 4,
       }
     ],
-    order: 1,
-    user: 7,
+    order: parseInt(localStorage.getItem("question_num") ?? "0") + 1,
+    user: parseInt(localStorage.getItem("loginUser") ?? "0"),
   }
 
   constructor(
@@ -49,7 +47,11 @@ export class EditQuizComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getQuiz();
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if(id){
+      this.getQuiz(id);
+    }
+
   }
 
   registerQuiz(){
@@ -67,8 +69,7 @@ export class EditQuizComponent implements OnInit {
     }
   }
 
-  getQuiz(){
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+  getQuiz(id:number ){
     this.quizService.getQuiz(id).subscribe( quiz => {
       console.log(quiz);
       this.quiz = quiz;
@@ -81,6 +82,5 @@ export class EditQuizComponent implements OnInit {
     }
     this.quiz.selection[i].is_correct = true;
   }
-
 
 }

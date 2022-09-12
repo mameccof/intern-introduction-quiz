@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'quiz', component: QuizComponent},
   { path: 'edit-profile', component: EditProfileComponent},
   { path: 'edit-quiz/:id', component: EditQuizComponent},
+  { path: 'edit-quiz', component: EditQuizComponent},
 ];
 
 @NgModule({
