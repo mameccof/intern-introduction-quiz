@@ -7,6 +7,7 @@ export interface Profile{
 }
 
 export interface User{
+  id: number;
   mailadress: string;
   password: string;
   user_name: string;
@@ -18,14 +19,23 @@ export interface User{
 }
 
 export interface Question{
+  id?: number;
   question: string;
   explanation: string;
-  selection: object[];
+  selection: Selection[];
   order: number;
+  user?: number;
+}
+
+export interface Selection{
+  sentence: string;
+  is_correct: boolean;
+  sort_num: number;
 }
 
 export const PROFILE: User =
   {
+    id:0,
     user_name:"吉田新",
     birth_date:"2002/05/07",
     password:'aiueo',

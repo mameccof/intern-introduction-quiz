@@ -33,11 +33,15 @@ export class HomeComponent implements OnInit {
     this.userService.getUser().subscribe(
       user =>{
 
+        localStorage.setItem('loginUser', user.id.toString());
+
         this.loginUser = user
         if(this.loginUser.icon_url === undefined){
           this.loginUser.icon_url = "https://material.angular.io/assets/img/examples/shiba2.jpg"
         }
         this.previewQuestions = this.loginUser.questions
+
+        localStorage.setItem('question_num', this.previewQuestions.length.toString());
 
       });
   }

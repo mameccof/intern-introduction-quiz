@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { QuizService } from 'src/app/services/quiz.service';
+import { Question } from 'src/app/types/types';
 
 @Component({
   selector: 'app-edit-quiz',
@@ -7,12 +10,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditQuizComponent implements OnInit {
 
-  selections: string[] = ['クラシック', 'K-POP', 'J-POP', 'ブルース'];
 
-  constructor() { }
+  quiz: Question = {
+    question: "",
+    explanation: "",
+    selection: [
+      {
+        sentence: "",
+        is_correct: false,
+        sort_num: 1,
+      },
+      {
+        sentence: "",
+        is_correct: false,
+        sort_num: 2,
+      },
+      {
+        sentence: "",
+        is_correct: true,
+        sort_num: 3,
+      },
+      {
+        sentence: "",
+        is_correct: false,
+        sort_num: 4,
+      }
+    ],
+    order: parseInt(localStorage.getItem("question_num") ?? "0") + 1,
+    user: parseInt(localStorage.getItem("loginUser") ?? "0"),
+  }
+
+  constructor(
+    private quizService: QuizService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  registerQuiz(){
+
+    this.quizService.registerQuiz(this.quiz).subscribe( q => {
+      this.router.navigate(['/home']);
+    })
+  }
+
+  setCorrect(i: number){
+    for(let selection of this.quiz.selection){
+      selection.is_correct = false;
+    }
+    this.quiz.selection[i].is_correct = true;
+  }
 
 }
