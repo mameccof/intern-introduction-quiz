@@ -8,7 +8,7 @@
         Q{{i + 1}} {{question.question}}
       </p>
       <div>
-        <button mat-icon-button matSuffix routerLink="/edit-quiz">
+        <button mat-icon-button matSuffix routerLink="/edit-quiz/{{question.id}}">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-icon-button matSuffix (click)="deleteQuestion(question.id)">

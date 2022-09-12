@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz.service';
 import { Question } from 'src/app/types/types';
 
@@ -13,6 +13,7 @@ export class EditQuizComponent implements OnInit {
   selections: string[] = ['クラシック', 'K-POP', 'J-POP', 'ブルース'];
 
   quiz: Question = {
+
     question: "nakamura nakamura san",
     explanation: "kaisetu",
     selection: [
@@ -44,24 +45,26 @@ export class EditQuizComponent implements OnInit {
   constructor(
     private quizService: QuizService,
     private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.getQuiz();
   }
 
-  // 登録ボタンにすでにregisterQuizを割り振っているが、こちらだとputではなくpostになる。
   registerQuiz(){
-    this.quizService.postQuiz(this.quiz).subscribe( q => {
-      console.log(q);
-    })
-  }
 
-  // 一時的にputを行うために別のメソッドを作成
-  putQuiz(){
-    this.quizService.putQuiz(this.quiz,37).subscribe( q => {
-      console.log(q);
-    })
+    if(this.quiz.id){
+      this.quizService.putQuiz(this.quiz,this.quiz.id ?? 0).subscribe( q => {
+        this.router.navigate(['/home']);
+        console.log(q);
+      })
+    }else{
+      this.quizService.postQuiz(this.quiz).subscribe( q => {
+        this.router.navigate(['/home']);
+        console.log(q);
+      })
+    }
   }
 
   getQuiz(){
