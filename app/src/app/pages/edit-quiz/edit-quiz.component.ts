@@ -10,14 +10,13 @@ import { Question } from 'src/app/types/types';
 })
 export class EditQuizComponent implements OnInit {
 
-
   quiz: Question = {
     question: "",
     explanation: "",
     selection: [
       {
         sentence: "",
-        is_correct: false,
+        is_correct: true,
         sort_num: 1,
       },
       {
@@ -27,7 +26,7 @@ export class EditQuizComponent implements OnInit {
       },
       {
         sentence: "",
-        is_correct: true,
+        is_correct: false,
         sort_num: 3,
       },
       {
@@ -51,11 +50,9 @@ export class EditQuizComponent implements OnInit {
     if(id){
       this.getQuiz(id);
     }
-
   }
 
   registerQuiz(){
-
     if(this.quiz.id){
       this.quizService.putQuiz(this.quiz,this.quiz.id ?? 0).subscribe( q => {
         this.router.navigate(['/home']);
