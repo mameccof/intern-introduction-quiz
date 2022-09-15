@@ -10,14 +10,13 @@ import { Question } from 'src/app/types/types';
 })
 export class EditQuizComponent implements OnInit {
 
-
   quiz: Question = {
     question: "",
     explanation: "",
     selection: [
       {
         sentence: "",
-        is_correct: false,
+        is_correct: true,
         sort_num: 1,
       },
       {
@@ -27,7 +26,7 @@ export class EditQuizComponent implements OnInit {
       },
       {
         sentence: "",
-        is_correct: true,
+        is_correct: false,
         sort_num: 3,
       },
       {
@@ -42,17 +41,36 @@ export class EditQuizComponent implements OnInit {
 
   constructor(
     private quizService: QuizService,
+    private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if(id){
+      this.getQuiz(id);
+    }
   }
 
   registerQuiz(){
+    if(this.quiz.id){
+      this.quizService.putQuiz(this.quiz,this.quiz.id ?? 0).subscribe( q => {
+        this.router.navigate(['/home']);
+        console.log(q);
+      })
+    }else{
+      this.quizService.postQuiz(this.quiz).subscribe( q => {
+        this.router.navigate(['/home']);
+        console.log(q);
+      })
+    }
+  }
 
-    this.quizService.registerQuiz(this.quiz).subscribe( q => {
-      this.router.navigate(['/home']);
-    })
+  getQuiz(id:number ){
+    this.quizService.getQuiz(id).subscribe( quiz => {
+      console.log(quiz);
+      this.quiz = quiz;
+    } );
   }
 
   setCorrect(i: number){

@@ -1,36 +1,34 @@
 <div class="centering-objects">
-  <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;" class="mt-5per">
+
+  <div class="mt-5per , flex-spacer">
     <button mat-raised-button routerLink="/home" style="margin-left:10%;" class="small-button">戻る</button>
-    <button mat-raised-button style="margin-right:10%;" class="small-button">ランダム</button>
+    <button mat-raised-button class="small-button , mr-10per">ランダム</button>
   </div>
-  <h1 class="mt-3per" style="align-self: flex-start; margin-left: 10%;">問題文</h1>
+  <h1 class="mt-3per , self-ml-10per" >問題文</h1>
+
   <mat-form-field style="width: 350px;" appearance="fill">
-    <textarea class="basic-textarea" matInput placeholder="問題文" [(ngModel)]="quiz.question">私の好きな音楽ジャンルはなんでしょう？</textarea>
+    <textarea class="basic-textarea" matInput placeholder="問題文" [(ngModel)]="quiz.question">{{quiz.question}}</textarea>
   </mat-form-field>
 
-  <h1 style="align-self: flex-start; margin-left: 10%;">選択肢</h1>
-  <p style="align-self: flex-start; margin-left: 10%;">正解を選択してください</p>
+  <h1 class="self-ml-10per" >選択肢</h1>
+  <p class="self-ml-10per">正解を選択してください</p>
 
-<mat-radio-group
-    aria-labelledby="example-radio-group-label"
-    class="example-radio-group">
-  <mat-radio-button class="example-radio-button" *ngFor="let selection of quiz.selection index as i" [value]="selection" (change)="setCorrect(i)">
+  <mat-radio-group class="radio-group">
+    <mat-radio-button class="example-radio-button" *ngFor="let selection of quiz.selection index as i" [value]="selection.is_correct"
+    [checked]="selection.is_correct" (change)="setCorrect(i)">
+      <mat-form-field appearance="fill"  class="basic-input">
+        <input matInput type="text" required [(ngModel)]="selection.sentence">
+      </mat-form-field>
+    </mat-radio-button>
+  </mat-radio-group>
 
-    <mat-form-field appearance="fill" class="basic-input">
-      <input matInput type="text" required [(ngModel)]="selection.sentence">
-    </mat-form-field>
-  </mat-radio-button>
-</mat-radio-group>
+  <h1 class="self-ml-10per">解説</h1>
 
-  <h1 style="align-self: flex-start; margin-left: 10%;">解説</h1>
   <mat-form-field style="width: 350px;" appearance="fill">
-    <textarea class="basic-textarea" matInput placeholder="解説文" [(ngModel)]="quiz.explanation">解説文アイウエオアイウエオアイウエオ</textarea>
+    <textarea class="basic-textarea" matInput placeholder="解説文" [(ngModel)]="quiz.explanation">{{quiz.explanation}}</textarea>
   </mat-form-field>
 
   <div class="mb-5per">
     <button mat-raised-button class="basic-button mb-5per" color="primary" (click)="registerQuiz()">登録する</button>
   </div>
-
-
-
 </div>
