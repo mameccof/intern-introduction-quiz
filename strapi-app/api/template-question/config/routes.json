@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/template-questions/random",
+      "handler": "template-question.random",
+      "config":{
+        "policies":[]
+      }
+    },
+    {
+      "method": "GET",
       "path": "/template-questions",
       "handler": "template-question.find",
       "config": {

@@ -48,29 +48,41 @@ export class EditQuizComponent implements OnInit {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if(id){
-      this.getQuiz(id);
+      this.quizService.getQuiz(id).subscribe( quiz => {
+        this.quiz = quiz;
+      } );
+    }else{
+      this.quizService.getTemplate().subscribe( template => {
+        this.quiz.question = template.question;
+        this.quiz.selection = template.selection;
+        this.quiz.explanation = "解説文はありません";
+      });
     }
   }
 
-  registerQuiz(){
+  registerButton(){
     if(this.quiz.id){
       this.quizService.putQuiz(this.quiz,this.quiz.id ?? 0).subscribe( q => {
         this.router.navigate(['/home']);
-        console.log(q);
       })
     }else{
       this.quizService.postQuiz(this.quiz).subscribe( q => {
         this.router.navigate(['/home']);
-        console.log(q);
       })
     }
   }
 
-  getQuiz(id:number ){
-    this.quizService.getQuiz(id).subscribe( quiz => {
-      console.log(quiz);
-      this.quiz = quiz;
-    } );
+  //2回同じテンプレを引かないようにしたい
+  randomButton(){
+    this.quizService.getTemplate().subscribe(template => {
+      if(this.quiz.question === template.question){
+        this.randomButton();
+      }else{
+        this.quiz.question = template.question;
+        this.quiz.selection = template.selection;
+        this.quiz.explanation = "解説文はありません";
+      }
+    });
   }
 
   setCorrect(i: number){
