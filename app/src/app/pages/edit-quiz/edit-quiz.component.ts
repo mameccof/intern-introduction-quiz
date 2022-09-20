@@ -11,6 +11,7 @@ import { Question } from 'src/app/types/types';
 export class EditQuizComponent implements OnInit {
 
   quiz: Question = {
+    id: 0,
     question: "",
     explanation: "",
     selection: [

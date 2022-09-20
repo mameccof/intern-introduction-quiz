@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile, User } from 'src/app/types/types';
+import { Question, User } from 'src/app/types/types';
 import { MatDialog } from '@angular/material/dialog';
 import { QrDialogComponent } from '../../components/qr-dialog/qr-dialog.component';
 import { UserService } from '../../services/user.service';
@@ -21,7 +21,7 @@ interface quiz{
 })
 export class HomeComponent implements OnInit {
 
-  previewQuestions: any[] = []
+  questions: Question[] = []
   loginUser!: User
 
   constructor(
@@ -39,9 +39,9 @@ export class HomeComponent implements OnInit {
         if(this.loginUser.icon_url === undefined){
           this.loginUser.icon_url = "https://material.angular.io/assets/img/examples/shiba2.jpg"
         }
-        this.previewQuestions = this.loginUser.questions
+        this.questions = this.loginUser.questions
 
-        localStorage.setItem('question_num', this.previewQuestions.length.toString());
+        localStorage.setItem('question_num', this.questions.length.toString());
 
       });
   }

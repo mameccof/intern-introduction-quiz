@@ -19,7 +19,7 @@ export interface User{
 }
 
 export interface Question{
-  id?: number;
+  id: number;
   question: string;
   explanation: string;
   selection: Selection[];
