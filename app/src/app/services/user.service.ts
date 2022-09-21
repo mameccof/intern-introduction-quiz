@@ -16,12 +16,10 @@ export class UserService {
 
   /** サーバーからヒーローを取得する */
   getUser(): Observable<User> {
-
     return this.http.get<User>(this.userUrl);
   }
 
   addUser(user:any){
-
     return this.http.post<User>("http://localhost:1337/Users", user);
   }
 

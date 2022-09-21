@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { QuizService } from '../../services/quiz.service';
 import { Question } from 'src/app/types/types';
+import { outputAst } from '@angular/compiler';
 
 
 /**
@@ -16,6 +17,8 @@ export class QuestionListComponent implements OnInit {
 
   @Input() questions?:Question[];
 
+  @Output() updateOrderEvent = new EventEmitter();
+
   constructor(
     private quizService: QuizService,
   ) { }
@@ -25,6 +28,7 @@ export class QuestionListComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.questions!, event.previousIndex, event.currentIndex);
+    this.updateOrderEvent.emit();
   }
 
   deleteQuestion(questionId:number){
