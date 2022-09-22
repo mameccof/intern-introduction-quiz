@@ -89,7 +89,5 @@ export class HomeComponent implements OnInit {
       this.questions[i-1].order = i;
       this.quizService.putQuiz(this.questions[i-1],this.questions[i-1].id).subscribe();
     }
-
   }
-
 }

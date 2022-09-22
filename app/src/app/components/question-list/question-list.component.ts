@@ -28,6 +28,7 @@ export class QuestionListComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.questions!, event.previousIndex, event.currentIndex);
+    //ドロップリストが変更したことを検知する
     this.updateOrderEvent.emit();
   }
 
