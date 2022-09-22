@@ -1,19 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
+  constructor(private userService: UserService, private router: Router) {}
 
-  constructor(
-    private userService: UserService,
-    ) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   isHide = true;
 
@@ -23,14 +20,18 @@ export class SignUpComponent implements OnInit {
     user_name: '',
     birth_date: '',
     birth_place: '',
-    affilition : '',
+    affilition: '',
+  };
+
+  registerUser(): void {
+    // this.userService.addUser(this.user).subscribe(() => {
+    //   console.log("bbb");
+    //   })
+    this.userService
+      .registerUser(this.user.mailadress, this.user.password)
+      .subscribe((response) => {
+        // this.router.navigate(['/home']);
+        console.log(response);
+      });
   }
-
-  registerUser(): void{
-
-    this.userService.addUser(this.user).subscribe(() => {
-      console.log("bbb");
-      })
-  }
-
 }
