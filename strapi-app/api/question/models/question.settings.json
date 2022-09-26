@@ -23,12 +23,13 @@
       "repeatable": true,
       "component": "selection.selection"
     },
-    "user": {
-      "model": "users",
-      "via": "questions"
-    },
     "order": {
       "type": "integer"
+    },
+    "user": {
+      "via": "questions",
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

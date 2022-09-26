@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,15 +10,22 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
   isHide: boolean = true;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {}
 
+  loginInfo = {
+    mailadress: '',
+    password: '',
+  };
+
   onBtnLogin() {
     this.userService
-      .login('macdsvfgnil@example.com', 'passworddesuyo')
-      .subscribe((response) => {
-        console.log(response);
+      .login(this.loginInfo.mailadress, this.loginInfo.password)
+      .subscribe((loginUser) => {
+        this.userService.loginUser = loginUser.user;
+        console.log(loginUser);
+        this.router.navigate(['/home']);
       });
   }
 }

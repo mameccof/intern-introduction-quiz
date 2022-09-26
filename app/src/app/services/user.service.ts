@@ -15,6 +15,8 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  loginUser!: User;
+
   /** サーバーからヒーローを取得する */
   getUser(): Observable<User> {
     return this.http.get<User>(this.userUrl);

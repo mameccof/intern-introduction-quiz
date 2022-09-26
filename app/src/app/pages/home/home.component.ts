@@ -4,46 +4,59 @@ import { MatDialog } from '@angular/material/dialog';
 import { QrDialogComponent } from '../../components/qr-dialog/qr-dialog.component';
 import { UserService } from '../../services/user.service';
 
-interface quiz{
-  question:string
-  explanation:string
+interface quiz {
+  question: string;
+  explanation: string;
   selection: {
-    sentence:string
-    is_correct:boolean
-    sort_num:number
-  }[]
-}[]
+    sentence: string;
+    is_correct: boolean;
+    sort_num: number;
+  }[];
+}
+[];
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  previewQuestions: any[] = [];
+  loginUser!: User;
 
-  previewQuestions: any[] = []
-  loginUser!: User
-
-  constructor(
-    public dialog: MatDialog,
-    private userService: UserService,
-  ) { }
+  constructor(public dialog: MatDialog, private userService: UserService) {}
 
   ngOnInit(): void {
-    this.userService.getUser().subscribe(
-      user =>{
+    // this.userService.getUser().subscribe(
+    //   user =>{
 
-        localStorage.setItem('loginUser', user.id.toString());
+    //     localStorage.setItem('loginUser', user.id.toString());
 
-        this.loginUser = user
-        if(this.loginUser.icon_url === undefined){
-          this.loginUser.icon_url = "https://material.angular.io/assets/img/examples/shiba2.jpg"
-        }
-        this.previewQuestions = this.loginUser.questions
+    //     this.loginUser = user
+    //     if(this.loginUser.icon_url === undefined){
+    //       this.loginUser.icon_url = "https://material.angular.io/assets/img/examples/shiba2.jpg"
+    //     }
+    //     this.previewQuestions = this.loginUser.questions
 
-        localStorage.setItem('question_num', this.previewQuestions.length.toString());
+    //     localStorage.setItem('question_num', this.previewQuestions.length.toString());
 
-      });
+    //   });
+
+    this.loginUser = this.userService.loginUser;
+
+    if (this.loginUser.icon_url === undefined) {
+      this.loginUser.icon_url =
+        'https://material.angular.io/assets/img/examples/shiba2.jpg';
+    }
+
+    this.previewQuestions = this.loginUser.questions;
+
+    localStorage.setItem('loginUser', this.loginUser.id.toString());
+
+    localStorage.setItem(
+      'question_num',
+      this.previewQuestions.length.toString()
+    );
   }
 
   openDialog(): void {
