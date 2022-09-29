@@ -1,8 +1,19 @@
 <div class="centering-objects mt-30per">
-  <p>正解</p>
+  <div *ngIf="this.isCorrect; else viewQuestions">
+    <p>正解</p>
+  </div>
+
+  <ng-template #viewQuestions>
+    <div>
+      <p>ハズレ</p>
+    </div>
+  </ng-template>
+
+  <p style="align-self: flex-start; margin-left: 10%;">答え</p>
+  <p>{{correctAnswer}}</p>
   <p style="align-self: flex-start; margin-left: 10%;">解説</p>
   <mat-card class="basic-card">
-    解説文解説文解説文解説文解説文解説文解説文解説文解説文解説文解説文解説文
+    {{quiz?.explanation}}
   </mat-card>
 
   <div class="mt-5per">

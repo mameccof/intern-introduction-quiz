@@ -3,19 +3,19 @@
     <button mat-raised-button routerLink="/home" class="small-button">やめる</button>
   </div>
   <mat-card class="basic-card">
-    私の好きな音楽ジャンルはなんでしょう？
+    {{quiz?.question}}
   </mat-card>
 
   <h1 style="align-self:flex-start; margin-left:10%;">
     選択肢
   </h1>
 
-  <ng-container *ngFor="let selection of selections">
-    <button mat-raised-button class="selection-button" [disabled]="selection === selectedSelection" (click)="onSelect(selection)">{{selection}}</button>
+  <ng-container *ngFor="let selection of quiz?.selection">
+    <button mat-raised-button class="selection-button" [disabled]="selection.id === selectedSelection" (click)="onSelect(selection.id!)">{{selection.sentence}}</button>
   </ng-container>
 
   <div class=" mt-10per">
-    <button mat-raised-button routerLink="/explanation" class="basic-button" color="primary">回答</button>
+    <button mat-raised-button class="basic-button" color="primary" (click)="sendAnswer()">回答</button>
 
   </div>
 
