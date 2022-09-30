@@ -24,6 +24,10 @@ export class QuizService {
     return this.http.get<Question>("http://localhost:1337/Questions/" + id);
   }
 
+  getTemplate(){
+    return this.http.get<Question>("http://localhost:1337/Template-questions/random/");
+  }
+
   putQuiz(question: Question , questionId: number){
     return this.http.put<Question>("http://localhost:1337/Questions/" + questionId, question);
   }
