@@ -1,9 +1,9 @@
 <div class="centering-objects mt-30per">
-  <div *ngIf="this.isCorrect; else viewQuestions">
+  <div *ngIf="this.isCorrect; else incorrect">
     <p>正解</p>
   </div>
 
-  <ng-template #viewQuestions>
+  <ng-template #incorrect>
     <div>
       <p>ハズレ</p>
     </div>
@@ -17,7 +17,7 @@
   </mat-card>
 
   <div class="mt-5per">
-    <button mat-raised-button routerLink="/result" class="basic-button" color="primary">次へ</button>
+    <button mat-raised-button class="basic-button" color="primary" (click)="this.onNextBtn()">次へ</button>
   </div>
 
 </div>

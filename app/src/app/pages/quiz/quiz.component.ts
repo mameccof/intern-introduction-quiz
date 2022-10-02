@@ -9,8 +9,6 @@ import { Question } from 'src/app/types/types';
   styleUrls: ['./quiz.component.scss'],
 })
 export class QuizComponent implements OnInit {
-  selections: string[] = ['クラシック', 'K-POP', 'レゲエ', 'J-POP'];
-
   constructor(
     private quizLogicService: QuizLogicService,
     private router: Router
@@ -34,10 +32,6 @@ export class QuizComponent implements OnInit {
   }
 
   sendAnswer() {
-    if (this.quizLogicService.isConfirmAnswer) {
-      this.router.navigate(['explanation/' + this.selectedSelection]);
-    } else {
-      // this.quizLogicService.checkAnswer(choice);
-    }
+    this.router.navigate(['explanation/' + this.selectedSelection]);
   }
 }

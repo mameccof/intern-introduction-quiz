@@ -14,8 +14,8 @@ export class StartComponent implements OnInit {
     this.quizLogicService.initQuiz();
   }
 
-  startQuiz(isConfirmAnswer: boolean) {
-    this.quizLogicService.startQuiz(isConfirmAnswer);
+  startQuiz() {
+    this.quizLogicService.startQuiz();
   }
 
   profile: User = PROFILE;
