@@ -8,9 +8,9 @@
     <button mat-raised-button (click)="openDialog()" class="basic-button">QRコードの表示</button>
   </div>
 
-  <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;" class="mt-5per">
-    <p class="ml-10per">問題一覧</p>
-    <button mat-raised-button class="small-button mr-10per" routerLink="/edit-quiz" >追加</button>
+  <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;" class="mt-5per mb-5per">
+    <h1 class="ml-11per">問題一覧</h1>
+    <button mat-raised-button class="small-button mr-11per" routerLink="/edit-quiz" >追加</button>
   </div>
   <app-question-list [previewQuestions]="previewQuestions"></app-question-list>
 

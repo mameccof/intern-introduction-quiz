@@ -2,47 +2,45 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from '../types/types';
 
-const QUIZ_COUNT = 2;
-
 @Injectable({
   providedIn: 'root',
 })
 export class QuizLogicService {
   quiz_data: Question[] = [
     {
-      question: 'a',
-      explanation: 'b',
+      question: 'この作業をしているのは何時だ',
+      explanation: '眠れないよ；；',
       selection: [
         {
           id: 1,
-          sentence: 'c',
+          sentence: '１７時',
           is_correct: false,
           sort_num: 1,
         },
         {
           id: 2,
-          sentence: 'd',
-          is_correct: true,
+          sentence: '２０時',
+          is_correct: false,
           sort_num: 2,
         },
         {
           id: 3,
-          sentence: 'e',
+          sentence: '２３時',
           is_correct: false,
           sort_num: 3,
         },
         {
           id: 4,
-          sentence: 'f',
-          is_correct: false,
+          sentence: '１時',
+          is_correct: true,
           sort_num: 4,
         },
       ],
-      order: 1,
+      order: 2,
     },
     {
-      question: 'a2',
-      explanation: 'b2',
+      question: '私が腹筋３０回にかかる秒数は',
+      explanation: '（自社調べ）',
       selection: [
         {
           id: 5,
@@ -69,7 +67,38 @@ export class QuizLogicService {
           sort_num: 4,
         },
       ],
-      order: 2,
+      order: 1,
+    },
+    {
+      question: 'aaaaa',
+      explanation: '（自社調べ）',
+      selection: [
+        {
+          id: 5,
+          sentence: 'c2',
+          is_correct: false,
+          sort_num: 1,
+        },
+        {
+          id: 6,
+          sentence: 'd2',
+          is_correct: true,
+          sort_num: 2,
+        },
+        {
+          id: 7,
+          sentence: 'e2',
+          is_correct: false,
+          sort_num: 3,
+        },
+        {
+          id: 8,
+          sentence: 'f2',
+          is_correct: false,
+          sort_num: 4,
+        },
+      ],
+      order: 1,
     },
   ];
 
@@ -113,7 +142,7 @@ export class QuizLogicService {
   }
 
   nextPage(): void {
-    if (this.questionCount <= QUIZ_COUNT) {
+    if (this.questionCount <= this._quizzes.length) {
       this.router.navigate(['quiz']);
     } else {
       this.router.navigate(['result']);
