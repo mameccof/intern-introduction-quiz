@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
     this.userService
       .login(this.loginInfo.mailadress, this.loginInfo.password)
       .subscribe((loginUser) => {
-        this.userService.loginUser = loginUser.user;
+        localStorage.setItem('jwt', loginUser.jwt);
+        localStorage.setItem('loginUserId', loginUser.id.toString());
         console.log(loginUser);
         this.router.navigate(['/home']);
       });

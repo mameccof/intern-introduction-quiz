@@ -11,15 +11,19 @@ import { User, Question } from '../types/types';
   providedIn: 'root',
 })
 export class UserService {
-  private userUrl = 'http://localhost:1337/Users/7'; // Web APIのURL
-
   constructor(private http: HttpClient) {}
 
   loginUser!: User;
 
   /** サーバーからヒーローを取得する */
-  getUser(): Observable<User> {
-    return this.http.get<User>(this.userUrl);
+  getUser(id: number): Observable<User> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    });
+    return this.http.get<User>('http://localhost:1337/Users/' + id, {
+      headers,
+    });
   }
 
   addUser(user: any) {

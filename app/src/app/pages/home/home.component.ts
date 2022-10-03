@@ -27,36 +27,21 @@ export class HomeComponent implements OnInit {
   constructor(public dialog: MatDialog, private userService: UserService) {}
 
   ngOnInit(): void {
-    // this.userService.getUser().subscribe(
-    //   user =>{
+    this.userService
+      .getUser(parseInt(localStorage.getItem('loginUserId')!))
+      .subscribe((user) => {
+        this.loginUser = user;
+        if (this.loginUser.icon_url === undefined) {
+          this.loginUser.icon_url =
+            'https://material.angular.io/assets/img/examples/shiba2.jpg';
+        }
+        this.previewQuestions = this.loginUser.questions;
 
-    //     localStorage.setItem('loginUser', user.id.toString());
-
-    //     this.loginUser = user
-    //     if(this.loginUser.icon_url === undefined){
-    //       this.loginUser.icon_url = "https://material.angular.io/assets/img/examples/shiba2.jpg"
-    //     }
-    //     this.previewQuestions = this.loginUser.questions
-
-    //     localStorage.setItem('question_num', this.previewQuestions.length.toString());
-
-    //   });
-
-    this.loginUser = this.userService.loginUser;
-
-    if (this.loginUser.icon_url === undefined) {
-      this.loginUser.icon_url =
-        'https://material.angular.io/assets/img/examples/shiba2.jpg';
-    }
-
-    this.previewQuestions = this.loginUser.questions;
-
-    localStorage.setItem('loginUser', this.loginUser.id.toString());
-
-    localStorage.setItem(
-      'question_num',
-      this.previewQuestions.length.toString()
-    );
+        localStorage.setItem(
+          'question_num',
+          this.previewQuestions.length.toString()
+        );
+      });
   }
 
   openDialog(): void {
@@ -66,6 +51,12 @@ export class HomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
+    });
+  }
+
+  getUser(): void {
+    this.userService.getUser(this.loginUser.id).subscribe((user) => {
+      console.log(user);
     });
   }
 }
