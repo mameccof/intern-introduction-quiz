@@ -73,6 +73,18 @@
       "plugin": "users-permissions",
       "collection": "user",
       "via": "following"
+    },
+    "profile_name": {
+      "type": "string"
+    },
+    "birth_date": {
+      "type": "date"
+    },
+    "birth_place": {
+      "type": "string"
+    },
+    "affilition": {
+      "type": "string"
     }
   }
 }

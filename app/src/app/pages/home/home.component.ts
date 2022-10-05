@@ -1,19 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile, User } from 'src/app/types/types';
+import { User } from 'src/app/types/types';
 import { MatDialog } from '@angular/material/dialog';
 import { QrDialogComponent } from '../../components/qr-dialog/qr-dialog.component';
 import { UserService } from '../../services/user.service';
-
-interface quiz {
-  question: string;
-  explanation: string;
-  selection: {
-    sentence: string;
-    is_correct: boolean;
-    sort_num: number;
-  }[];
-}
-[];
 
 @Component({
   selector: 'app-home',

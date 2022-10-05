@@ -1,21 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile, User , PROFILE } from 'src/app/types/types';
-
-
+import { User, PROFILE } from 'src/app/types/types';
 
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
-  styleUrls: ['./start.component.scss']
+  styleUrls: ['./start.component.scss'],
 })
 export class StartComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   profile: User = PROFILE;
-
-
 }

@@ -22,10 +22,11 @@ export class LoginComponent implements OnInit {
   onBtnLogin() {
     this.userService
       .login(this.loginInfo.mailadress, this.loginInfo.password)
-      .subscribe((loginUser) => {
-        localStorage.setItem('jwt', loginUser.jwt);
-        localStorage.setItem('loginUserId', loginUser.id.toString());
-        console.log(loginUser);
+      .subscribe((loginResponce) => {
+        localStorage.setItem('jwt', loginResponce.jwt);
+        console.log(loginResponce.user.id);
+        localStorage.setItem('loginUserId', loginResponce.user.id.toString());
+        console.log(loginResponce);
         this.router.navigate(['/home']);
       });
   }
