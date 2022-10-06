@@ -15,7 +15,7 @@ export interface User {
   birth_place: string;
   affilition: string;
   icon_url: string;
-  questions: any[];
+  questions: Question[];
 }
 
 export interface Question {

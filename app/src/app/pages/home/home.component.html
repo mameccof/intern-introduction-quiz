@@ -12,6 +12,6 @@
     <h1 class="ml-11per">問題一覧</h1>
     <button mat-raised-button class="small-button mr-11per" routerLink="/edit-quiz" >追加</button>
   </div>
-  <app-question-list [previewQuestions]="previewQuestions"></app-question-list>
+  <app-question-list [questions]="sortedMyQuestions" (updateOrderEvent)="updateOrder()"></app-question-list>
 
 </div>
