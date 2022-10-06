@@ -16,7 +16,7 @@ export class ProfileListComponent implements OnInit {
       birth_place: '福島県',
       affilition: '国際情報工科自動車大学校',
       icon_url: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      mailadress: '',
+      email: '',
       questions: [],
     },
     {
@@ -28,7 +28,7 @@ export class ProfileListComponent implements OnInit {
       affilition: '国際情報工科自動車大学校',
       icon_url:
         'https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg',
-      mailadress: '',
+      email: '',
       questions: [],
     },
     {
@@ -40,7 +40,7 @@ export class ProfileListComponent implements OnInit {
       affilition: '国際情報工科自動車大学校',
       icon_url:
         'https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      mailadress: '',
+      email: '',
       questions: [],
     },
     {
@@ -52,7 +52,7 @@ export class ProfileListComponent implements OnInit {
       affilition: '国際情報工科自動車大学校',
       icon_url:
         'https://cdn.discordapp.com/attachments/994847016523939900/1004143146202038342/IMG_1419.jpg',
-      mailadress: '',
+      email: '',
       questions: [],
     },
   ];

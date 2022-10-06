@@ -1,6 +1,6 @@
 export interface User {
   id: number;
-  mailadress: string;
+  email: string;
   password: string;
   profile_name: string;
   birth_date: string;
@@ -8,6 +8,7 @@ export interface User {
   affilition: string;
   icon_url: string;
   questions: Question[];
+  username?: string;
 }
 
 export interface Question {
@@ -34,6 +35,6 @@ export const PROFILE: User = {
   birth_place: '福島県',
   affilition: '国際情報工科自動車大学校',
   icon_url: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-  mailadress: '',
+  email: '',
   questions: [],
 };

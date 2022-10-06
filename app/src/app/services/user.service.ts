@@ -30,7 +30,7 @@ export class UserService {
     return this.http.post<User>('http://localhost:1337/Users', user);
   }
 
-  registerUser(user: any) {
+  registerUser(user: User) {
     return this.http.post<any>(
       'http://localhost:1337/auth/local/register',
       user

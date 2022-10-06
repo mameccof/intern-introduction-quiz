@@ -15,9 +15,8 @@ export class SignUpComponent implements OnInit {
 
   isHide = true;
 
-  user: any = {
+  user: User = {
     email: '',
-    username: '',
     password: '',
     profile_name: '',
     birth_date: '',
@@ -26,12 +25,10 @@ export class SignUpComponent implements OnInit {
     id: 0,
     icon_url: '',
     questions: [],
+    username: '',
   };
 
   registerUser(): void {
-    // this.userService.addUser(this.user).subscribe(() => {
-    //   console.log("bbb");
-    //   })
     this.user.username = this.user.email;
     this.userService.registerUser(this.user).subscribe((response) => {
       localStorage.setItem('jwt', response.jwt);
