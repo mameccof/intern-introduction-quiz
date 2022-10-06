@@ -14,21 +14,21 @@ import { EditQuizComponent } from './pages/edit-quiz/edit-quiz.component';
 
 const routes: Routes = [
   { path: '', component: TitleComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'sign-up', component: SignUpComponent},
-  { path: 'result', component: ResultComponent},
-  { path: 'profile-list', component: ProfileListComponent},
-  { path: 'explanation', component: ExplanationComponent},
-  { path: 'home', component: HomeComponent},
-  { path: 'start', component: StartComponent},
-  { path: 'quiz', component: QuizComponent},
-  { path: 'edit-profile', component: EditProfileComponent},
-  { path: 'edit-quiz/:id', component: EditQuizComponent},
-  { path: 'edit-quiz', component: EditQuizComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'result', component: ResultComponent },
+  { path: 'profile-list', component: ProfileListComponent },
+  { path: 'explanation/:id', component: ExplanationComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'start', component: StartComponent },
+  { path: 'quiz', component: QuizComponent },
+  { path: 'edit-profile', component: EditProfileComponent },
+  { path: 'edit-quiz/:id', component: EditQuizComponent },
+  { path: 'edit-quiz', component: EditQuizComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
