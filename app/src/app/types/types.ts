@@ -11,7 +11,7 @@ export interface User {
 }
 
 export interface Question {
-  id?: number;
+  id: number;
   question: string;
   explanation: string;
   selection: Selection[];
@@ -20,6 +20,7 @@ export interface Question {
 }
 
 export interface Selection {
+  id?: number;
   sentence: string;
   is_correct: boolean;
   sort_num: number;

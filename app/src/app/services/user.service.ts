@@ -30,15 +30,10 @@ export class UserService {
     return this.http.post<User>('http://localhost:1337/Users', user);
   }
 
-  registerUser(mailadress: string, password: string) {
-    const data = {
-      username: mailadress,
-      email: mailadress,
-      password: password,
-    };
+  registerUser(user: any) {
     return this.http.post<any>(
       'http://localhost:1337/auth/local/register',
-      data
+      user
     );
   }
 

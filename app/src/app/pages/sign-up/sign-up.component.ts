@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/types/types';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -14,24 +15,32 @@ export class SignUpComponent implements OnInit {
 
   isHide = true;
 
-  user = {
-    mailadress: '',
+  user: any = {
+    email: '',
+    username: '',
     password: '',
-    user_name: '',
+    profile_name: '',
     birth_date: '',
     birth_place: '',
     affilition: '',
+    id: 0,
+    icon_url: '',
+    questions: [],
   };
 
   registerUser(): void {
     // this.userService.addUser(this.user).subscribe(() => {
     //   console.log("bbb");
     //   })
-    this.userService
-      .registerUser(this.user.mailadress, this.user.password)
-      .subscribe((response) => {
-        // this.router.navigate(['/home']);
-        console.log(response);
-      });
+    this.user.username = this.user.email;
+    this.userService.registerUser(this.user).subscribe((response) => {
+      localStorage.setItem('jwt', response.jwt);
+      console.log(response.user.id);
+      localStorage.setItem('loginUserId', response.user.id.toString());
+      console.log(response);
+
+      this.router.navigate(['/home']);
+      console.log(response);
+    });
   }
 }

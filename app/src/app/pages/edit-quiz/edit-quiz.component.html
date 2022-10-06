@@ -2,7 +2,7 @@
 
   <div class="mt-5per , flex-spacer">
     <button mat-raised-button routerLink="/home" style="margin-left:10%;" class="small-button">戻る</button>
-    <button mat-raised-button class="small-button , mr-10per">ランダム</button>
+    <button mat-raised-button class="small-button , mr-10per" (click)="randomQuiz()">ランダム</button>
   </div>
   <h1 class="mt-3per , self-ml-10per" >問題文</h1>
 
@@ -28,7 +28,9 @@
     <textarea class="basic-textarea" matInput placeholder="解説文" [(ngModel)]="quiz.explanation">{{quiz.explanation}}</textarea>
   </mat-form-field>
 
-  <div class="mb-5per">
-    <button mat-raised-button class="basic-button mb-5per" color="primary" (click)="registerQuiz()">登録する</button>
+  <div>
+    <div class="mb-5per">
+      <button mat-raised-button class="basic-button mb-5per" color="primary" (click)="registerQuiz()">登録する</button>
+    </div>
   </div>
 </div>

@@ -1,29 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { QuizLogicService } from 'src/app/services/quiz-logic.service';
+import { Question } from 'src/app/types/types';
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.scss']
+  styleUrls: ['./quiz.component.scss'],
 })
 export class QuizComponent implements OnInit {
+  constructor(
+    private quizLogicService: QuizLogicService,
+    private router: Router
+  ) {}
 
-  selectedSelection?: string;
-
-  selections: string[] = [
-    "クラシック",
-    "K-POP",
-    "レゲエ",
-    "J-POP",
-  ]
-
-  constructor() { }
+  quiz?: Question;
+  questionCount?: number;
+  selectedSelection?: number;
 
   ngOnInit(): void {
+    if (this.quizLogicService.isQuizzing) {
+      this.quiz = this.quizLogicService.getQuiz();
+      this.questionCount = this.quizLogicService.questionCount;
+    } else {
+      this.router.navigate(['home']);
+    }
   }
 
-  onSelect(selection: string): void {
+  onSelect(selection: number): void {
     this.selectedSelection = selection;
   }
 
+  sendAnswer() {
+    this.router.navigate(['explanation/' + this.selectedSelection]);
+  }
 }

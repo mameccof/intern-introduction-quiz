@@ -1,9 +1,9 @@
 <div cdkDropList class="question-list" (cdkDropListDropped)="drop($event)">
-  <div *ngIf="previewQuestions?.length === 0; else viewQuestions">
+  <div *ngIf="questions?.length === 0; else viewQuestions">
     <p style="text-align:center">問題の登録がされていません。</p>
   </div>
   <ng-template #viewQuestions>
-    <div class="question-box" *ngFor="let question of previewQuestions index as i" cdkDrag>
+    <div class="question-box" *ngFor="let question of questions index as i" cdkDrag>
       <p class="ellipsis">
         Q{{i + 1}} {{question.question}}
       </p>

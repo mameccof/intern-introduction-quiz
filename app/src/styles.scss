@@ -1,43 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body {height: 100%}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: floralwhite;}
-
-h1{
+html,
+body {
+  height: 100%;
+}
+body {
   margin: 0;
-  color: gray;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: floralwhite;
 }
 
-.basic-button{
+h1 {
+  margin: 0;
+  color: rgb(110, 107, 93);
+  font-size: 25px;
+}
+
+.basic-button {
   width: 280px;
   height: 60px;
 }
-.small-button{
+.small-button {
   width: 100px;
   height: 35px;
 }
-.basic-input{
+.basic-input {
   width: 300px;
   margin-bottom: 0;
 }
-.basic-card{
+.basic-card {
   width: 300px;
   height: 200px;
   margin: 5%;
 }
 
-.centering-objects{
+.centering-objects {
   display: flex;
   flex-flow: column;
   align-items: center;
   height: 92%;
 }
-.quiz-card{
+.quiz-card {
   width: 300px;
   height: 25%;
   margin: 5%;
 }
-.explanation-card{
+.explanation-card {
   margin: 5%;
   height: 30%;
 }
@@ -46,12 +54,31 @@ h1{
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+.back-button-spacer {
+  align-self: flex-start;
+  margin-left: 10%;
+  margin-top: 5%;
+}
 
 //余白クラス
-.mt-3per{ margin-top: 3%; }
-.mt-5per{ margin-top: 5%; }
-.mt-10per{ margin-top: 10%; }
-.mt-20per{ margin-top: 20%; }
-.mt-30per{ margin-top: 30%; }
-.mt-50per{ margin-top: 50%; }
-.mb-5per{ margin-bottom: 5%; }
+.mt-3per {
+  margin-top: 3%;
+}
+.mt-5per {
+  margin-top: 5%;
+}
+.mt-10per {
+  margin-top: 10%;
+}
+.mt-20per {
+  margin-top: 20%;
+}
+.mt-30per {
+  margin-top: 30%;
+}
+.mt-50per {
+  margin-top: 50%;
+}
+.mb-5per {
+  margin-bottom: 5%;
+}
