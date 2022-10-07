@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from '../types/types';
+import { QuizService } from './quiz.service';
 
 @Injectable({
   providedIn: 'root',
@@ -114,7 +115,7 @@ export class QuizLogicService {
   // クイズを実行中かどうかのフラグ値
   private _isQuizzing: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private quizService: QuizService) {}
 
   // homeのngOnInitから実行される
   // 出題する問題やカウントの初期化、フラグの初期化
@@ -128,11 +129,15 @@ export class QuizLogicService {
   // homeの「クイズスタート」ボタンから実行される
   // これから出題する問題の取得、出題数、正答数を初期化
   startQuiz() {
-    this._quizzes = this.quiz_data;
-    this._questionCount = 1;
-    this._correctCount = 0;
-    this._isQuizzing = true;
-    this.router.navigate(['quiz']);
+    this.quizService.getQuizzes(4).subscribe((data) => {
+      this._quizzes = data;
+      this._questionCount = 1;
+      this._correctCount = 0;
+      this._isQuizzing = true;
+      this.router.navigate(['quiz']);
+    });
+
+    // this._quizzes = this.quiz_data;
   }
 
   getQuiz(): Question {
