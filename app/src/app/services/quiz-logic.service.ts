@@ -8,6 +8,7 @@ import { Question } from '../types/types';
 export class QuizLogicService {
   quiz_data: Question[] = [
     {
+      id: 0,
       question: 'この作業をしているのは何時だ',
       explanation: '眠れないよ；；',
       selection: [
@@ -39,6 +40,7 @@ export class QuizLogicService {
       order: 2,
     },
     {
+      id: 1,
       question: '私が腹筋３０回にかかる秒数は',
       explanation: '（自社調べ）',
       selection: [
@@ -70,6 +72,7 @@ export class QuizLogicService {
       order: 1,
     },
     {
+      id: 2,
       question: 'aaaaa',
       explanation: '（自社調べ）',
       selection: [

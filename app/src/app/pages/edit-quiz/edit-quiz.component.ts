@@ -36,7 +36,7 @@ export class EditQuizComponent implements OnInit {
       },
     ],
     order: parseInt(localStorage.getItem('question_num') ?? '0') + 1,
-    user: parseInt(localStorage.getItem('loginUser') ?? '0'),
+    user: parseInt(localStorage.getItem('loginUserId') ?? '0'),
   };
 
   constructor(

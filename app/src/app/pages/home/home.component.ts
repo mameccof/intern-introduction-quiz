@@ -21,34 +21,35 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userService.getUser().subscribe((user) => {
-      localStorage.setItem('loginUser', user.id.toString());
+    this.userService
+      .getUser(parseInt(localStorage.getItem('loginUserId')!))
+      .subscribe((user) => {
+        this.loginUser = user;
 
-      this.loginUser = user;
-      if (this.loginUser.icon_url === undefined) {
-        this.loginUser.icon_url =
-          'https://material.angular.io/assets/img/examples/shiba2.jpg';
-      }
+        if (!this.loginUser.icon_url) {
+          this.loginUser.icon_url =
+            'https://material.angular.io/assets/img/examples/shiba2.jpg';
+        }
 
-      //データベースから取得したデータはorder順になっていないので、orderの昇順になるようにソート
-      const sortedQuizzes = this.loginUser.questions.sort(function (
-        first,
-        second
-      ) {
-        return first.order - second.order;
+        //データベースから取得したデータはorder順になっていないので、orderの昇順になるようにソート
+        const sortedQuizzes = this.loginUser.questions.sort(function (
+          first,
+          second
+        ) {
+          return first.order - second.order;
+        });
+
+        this.sortedMyQuestions = sortedQuizzes;
+
+        localStorage.setItem(
+          'question_num',
+          this.sortedMyQuestions.length.toString()
+        );
+
+        //問題を削除した時にイベントを渡すと、リロードの関係でうまくいってるのかよくわからないので
+        //問題削除 > リロード > homeの読み込み >  ngOnInit() > updateOrder() 問題が削除された時にorderがずれることを対策
+        this.updateOrder();
       });
-
-      this.sortedMyQuestions = sortedQuizzes;
-
-      localStorage.setItem(
-        'question_num',
-        this.sortedMyQuestions.length.toString()
-      );
-
-      //問題を削除した時にイベントを渡すと、リロードの関係でうまくいってるのかよくわからないので
-      //問題削除 > リロード > homeの読み込み >  ngOnInit() > updateOrder() 問題が削除された時にorderがずれることを対策
-      this.updateOrder();
-    });
   }
 
   openDialog(): void {
