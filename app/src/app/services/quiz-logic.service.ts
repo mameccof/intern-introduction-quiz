@@ -112,6 +112,9 @@ export class QuizLogicService {
   private _questionCount: number = 0;
   private _correctCount: number = 0;
 
+  //出題者名
+  private _questioner: string = '';
+
   // クイズを実行中かどうかのフラグ値
   private _isQuizzing: boolean = false;
 
@@ -157,6 +160,10 @@ export class QuizLogicService {
     }
   }
 
+  setQuestioner(name: string): void {
+    this._questioner = name;
+  }
+
   // 上記で宣言したprivateな変数のgetter
   get questionCount(): number {
     return this._questionCount;
@@ -166,6 +173,9 @@ export class QuizLogicService {
   }
   get isQuizzing(): boolean {
     return this._isQuizzing;
+  }
+  get Questioner(): string {
+    return this._questioner;
   }
   // get isConfirmAnswer(): boolean {
   //   return this._isConfirmAnswer;
