@@ -28,7 +28,7 @@ export class StartComponent implements OnInit {
   }
 
   startQuiz() {
-    this.quizLogicService.setQuestioner(this.profile.profile_name);
+    this.quizLogicService.questioner = this.profile.profile_name;
     this.quizLogicService.startQuiz(this.profile.id);
   }
 }

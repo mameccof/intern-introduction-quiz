@@ -13,7 +13,7 @@ export class ResultComponent implements OnInit {
   questioner: string = 'A';
 
   ngOnInit(): void {
-    this.questioner = this.quizLogic.Questioner;
+    this.questioner = this.quizLogic.questioner;
     this.correctNum = this.quizLogic.correctCount;
   }
 }
