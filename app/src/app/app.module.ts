@@ -34,6 +34,7 @@ import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
 import { IconDialogComponent } from './components/icon-dialog/icon-dialog.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { HttpClientModule } from '@angular/common/http';
     QuestionListComponent,
     QrDialogComponent,
     IconDialogComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
