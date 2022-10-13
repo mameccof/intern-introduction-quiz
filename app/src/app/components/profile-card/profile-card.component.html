@@ -1,19 +1,19 @@
 <mat-card routerLink="/start" class="profile-card">
   <div class="flex">
-    <img style="align-self: center; width: 112px; height: 112px;" mat-card-md-image src="{{profile?.icon_url}}" >
+    <img style="align-self: center; width: 100px; height: 100px;" mat-card-md-image src="{{profile?.icon_url}}" >
     <div class="ptags">
       <div class="flex" style="border-bottom: solid 2px black;">
-        <div style="width: 3em;">
+        <div style="width: 4em;">
           <p>
-            所属
+            所　属
           </p>
         </div>
           <p>
             {{profile?.affilition}}
           </p>
       </div>
-      <p>名前 <span>{{profile?.profile_name}}</span></p>
-      <p>生年月日 <span>{{profile?.birth_date}}</span></p>
+      <p>名　前 <span>{{profile?.profile_name}}</span></p>
+      <p>誕生日 <span>{{profile?.birth_date}}</span></p>
       <p>出身地 <span>{{profile?.birth_place}}</span></p>
     </div>
   </div>

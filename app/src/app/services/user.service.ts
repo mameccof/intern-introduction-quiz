@@ -26,15 +26,15 @@ export class UserService {
     });
   }
 
-  addUser(user: any) {
-    return this.http.post<User>('http://localhost:1337/Users', user);
-  }
-
   registerUser(user: User) {
     return this.http.post<any>(
       'http://localhost:1337/auth/local/register',
       user
     );
+  }
+
+  putUser(user: User, UserId: number) {
+    return this.http.put<User>(`http://localhost:1337/Users/${UserId}`, user);
   }
 
   login(identifier: string, password: string) {
