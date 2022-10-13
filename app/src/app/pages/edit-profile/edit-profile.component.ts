@@ -24,6 +24,8 @@ export class EditProfileComponent implements OnInit {
     this.userId = parseInt(localStorage.getItem('loginUserId')!);
     this.userService.getUser(this.userId).subscribe((user) => {
       this.profile = user;
+      this.profile.icon_url =
+        'https://material.angular.io/assets/img/examples/shiba2.jpg';
     });
   }
 
