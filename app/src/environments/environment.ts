@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   API_URL: 'http://localhost:1337',
+  FRONT_URL: 'http://localhost:4200',
 };
 
 /*
