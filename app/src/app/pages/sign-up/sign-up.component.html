@@ -3,7 +3,7 @@
   <h1 class="left-alignment mt-5per">プロフィール情報</h1>
 
   <mat-form-field appearance="fill"  class="basic-input">
-    <input matInput placeholder="名前" type="text" required [(ngModel)]="user.user_name">
+    <input matInput placeholder="名前" type="text" required [(ngModel)]="user.profile_name">
   </mat-form-field>
 
   <mat-form-field appearance="fill"  class="basic-input">
@@ -22,7 +22,7 @@
   <h1 class="left-alignment">ログイン情報</h1>
 
   <mat-form-field appearance="fill"  class="basic-input">
-    <input matInput placeholder="メールアドレス" type="text" required [(ngModel)]="user.mailadress">
+    <input matInput placeholder="メールアドレス" type="text" required [(ngModel)]="user.email">
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="basic-input">
@@ -34,7 +34,7 @@
   </mat-form-field>
 
     <div class="mt-10per">
-      <button mat-raised-button class="basic-button" routerLink="/home" color="primary" (click)="registerUser()">新規登録</button>
+      <button mat-raised-button class="basic-button" color="primary" (click)="registerUser()">新規登録</button>
     </div>
     <div class="mt-3per">
       <button mat-flat-button routerLink="/login">ログインはこちら</button>

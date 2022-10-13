@@ -1,12 +1,23 @@
 <div class="centering-objects mt-30per">
-  <p>正解</p>
+  <div *ngIf="this.isCorrect; else incorrect">
+    <p>正解</p>
+  </div>
+
+  <ng-template #incorrect>
+    <div>
+      <p>ハズレ</p>
+    </div>
+  </ng-template>
+
+  <p style="align-self: flex-start; margin-left: 10%;">答え</p>
+  <p>{{correctAnswer}}</p>
   <p style="align-self: flex-start; margin-left: 10%;">解説</p>
   <mat-card class="basic-card">
-    解説文解説文解説文解説文解説文解説文解説文解説文解説文解説文解説文解説文
+    {{quiz?.explanation}}
   </mat-card>
 
   <div class="mt-5per">
-    <button mat-raised-button routerLink="/result" class="basic-button" color="primary">次へ</button>
+    <button mat-raised-button class="basic-button" color="primary" (click)="this.onNextBtn()">次へ</button>
   </div>
 
 </div>

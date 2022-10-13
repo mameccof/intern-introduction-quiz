@@ -35,6 +35,7 @@ import { IconDialogComponent } from './components/icon-dialog/icon-dialog.compon
 
 import { HttpClientModule } from '@angular/common/http';
 import { QRCodeModule } from 'angularx-qrcode';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     QuestionListComponent,
     QrDialogComponent,
     IconDialogComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,

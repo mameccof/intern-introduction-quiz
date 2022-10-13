@@ -1,30 +1,30 @@
 <div class="centering-objects">
-  <div style="align-self: flex-start; margin-left: 18.75px; margin-top: 20px;">
+  <div class="back-button-spacer">
     <button mat-raised-button routerLink="/home" class="small-button">戻る</button>
   </div>
   <app-profile-card [profile]="profile" ></app-profile-card>
 
     <mat-form-field class="user-info-form" appearance="fill">
       <mat-label>名前</mat-label>
-      <input matInput placeholder="例：山田たろう">
+      <input matInput placeholder="例：山田たろう" [(ngModel)]="profile.profile_name">
     </mat-form-field>
     <mat-form-field class="user-info-form" appearance="fill">
       <mat-label>所属</mat-label>
-      <input matInput placeholder="例：wiz">
+      <input matInput placeholder="例：wiz" [(ngModel)]="profile.affilition">
     </mat-form-field>
     <mat-form-field class="user-info-form" appearance="fill">
       <mat-label>生年月日</mat-label>
-      <input matInput placeholder="例：1992/4/23" type="date">
+      <input matInput placeholder="例：1992/4/23" type="date" [(ngModel)]="profile.birth_date">
     </mat-form-field>
     <mat-form-field class="user-info-form" appearance="fill">
       <mat-label>出身地</mat-label>
-      <input matInput placeholder="例：岡山県">
+      <input matInput placeholder="例：岡山県" [(ngModel)]="profile.birth_place">
     </mat-form-field>
     <div class="mb-5per">
-      <button mat-raised-button style="width: 382px; height: 50px;;" class="basic-button" (click)="openDialog()">画像の選択</button>
+      <button mat-raised-button style="width: 332px; height: 50px;;" class="basic-button" (click)="openDialog()">画像の選択</button>
     </div>
 
   <div class="mt-20per">
-    <button mat-raised-button class="basic-button" color="primary">確定</button>
+    <button mat-raised-button class="basic-button" color="primary" (click)="updateProfile()">確定</button>
   </div>
 </div>

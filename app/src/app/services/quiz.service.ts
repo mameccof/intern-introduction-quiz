@@ -23,8 +23,22 @@ export class QuizService {
     );
   }
 
-  getQuiz(id: number): Observable<Question> {
-    return this.http.get<Question>(`${environment.API_URL}/Questions/${id}`);
+  getQuiz(questionId: number): Observable<Question> {
+    return this.http.get<Question>(
+      `${environment.API_URL}/Questions/${questionId}`
+    );
+  }
+
+  getQuizzes(userId: number): Observable<Question[]> {
+    return this.http.get<Question[]>(
+      `${environment.API_URL}/Questions?user=${userId}`
+    );
+  }
+
+  getTemplate() {
+    return this.http.get<Question>(
+      `${environment.API_URL}/Template-questions/random/`
+    );
   }
 
   putQuiz(question: Question, questionId: number) {
