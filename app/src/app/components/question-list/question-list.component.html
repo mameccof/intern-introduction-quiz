@@ -11,7 +11,7 @@
         <button mat-icon-button matSuffix routerLink="/edit-quiz/{{question.id}}">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button matSuffix (click)="deleteQuestion(question.id)">
+        <button mat-icon-button matSuffix (click)="openDialog(question.id)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
