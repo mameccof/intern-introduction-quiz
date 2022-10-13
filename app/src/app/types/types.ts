@@ -29,12 +29,12 @@ export interface Selection {
 
 export const PROFILE: User = {
   id: 0,
-  profile_name: '吉田新',
-  birth_date: '2002/05/07',
-  password: 'aiueo',
-  birth_place: '福島県',
-  affilition: '国際情報工科自動車大学校',
-  icon_url: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+  profile_name: '',
+  birth_date: '',
+  password: '',
+  birth_place: '',
+  affilition: '',
+  icon_url: '',
   email: '',
   questions: [],
 };

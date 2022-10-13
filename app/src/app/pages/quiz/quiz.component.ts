@@ -31,6 +31,7 @@ export class QuizComponent implements OnInit {
     this.selectedSelection = selection;
   }
 
+  //TODO 選択していない状態で遷移できないようにする
   sendAnswer() {
     this.router.navigate(['explanation/' + this.selectedSelection]);
   }
