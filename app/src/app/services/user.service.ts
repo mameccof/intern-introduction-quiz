@@ -26,6 +26,12 @@ export class UserService {
     });
   }
 
+  getFollowing(myId: number): Observable<User[]> {
+    return this.http.get<User[]>(
+      `http://localhost:1337/Users?followers=${myId}`
+    );
+  }
+
   registerUser(user: User) {
     return this.http.post<any>(
       'http://localhost:1337/auth/local/register',

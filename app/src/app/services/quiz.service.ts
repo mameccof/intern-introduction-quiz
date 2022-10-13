@@ -23,8 +23,16 @@ export class QuizService {
     );
   }
 
-  getQuiz(id: number): Observable<Question> {
-    return this.http.get<Question>('http://localhost:1337/Questions/' + id);
+  getQuiz(questionId: number): Observable<Question> {
+    return this.http.get<Question>(
+      'http://localhost:1337/Questions/' + questionId
+    );
+  }
+
+  getQuizzes(userId: number): Observable<Question[]> {
+    return this.http.get<Question[]>(
+      'http://localhost:1337/Questions?user=' + userId
+    );
   }
 
   getTemplate() {

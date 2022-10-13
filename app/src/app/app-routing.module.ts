@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'profile-list', component: ProfileListComponent },
   { path: 'explanation/:id', component: ExplanationComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'start', component: StartComponent },
+  { path: 'start/:id', component: StartComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'edit-quiz/:id', component: EditQuizComponent },

@@ -10,8 +10,10 @@ export class ResultComponent implements OnInit {
   constructor(private quizLogic: QuizLogicService) {}
 
   correctNum: number = 0;
+  questioner: string = 'A';
 
   ngOnInit(): void {
+    this.questioner = this.quizLogic.questioner;
     this.correctNum = this.quizLogic.correctCount;
   }
 }
