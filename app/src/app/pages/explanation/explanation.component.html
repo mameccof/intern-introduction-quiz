@@ -1,17 +1,17 @@
 <div class="centering-objects mt-30per">
   <div *ngIf="this.isCorrect; else incorrect">
-    <p>正解</p>
+    <span class="correct">正解</span>
   </div>
 
   <ng-template #incorrect>
     <div>
-      <p>ハズレ</p>
+      <span class="incorrect">ハズレ</span>
     </div>
   </ng-template>
 
-  <p style="align-self: flex-start; margin-left: 10%;">答え</p>
+  <h1 style="align-self: flex-start; margin-left: 10%;">答え</h1>
   <p>{{correctAnswer}}</p>
-  <p style="align-self: flex-start; margin-left: 10%;">解説</p>
+  <h1 style="align-self: flex-start; margin-left: 10%;">解説</h1>
   <mat-card class="basic-card">
     {{quiz?.explanation}}
   </mat-card>
