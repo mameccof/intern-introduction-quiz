@@ -34,6 +34,7 @@ import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
 import { IconDialogComponent } from './components/icon-dialog/icon-dialog.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { QRCodeModule } from 'angularx-qrcode';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
@@ -72,6 +73,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     MatFormFieldModule,
     MatDialogModule,
     HttpClientModule,
+    QRCodeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
