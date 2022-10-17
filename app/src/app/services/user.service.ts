@@ -13,7 +13,7 @@ import { User, Question } from '../types/types';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  loginUser!: User;
+  // _loginUser?: User;
 
   /** サーバーからヒーローを取得する */
   getUser(id: number): Observable<User> {
@@ -43,6 +43,15 @@ export class UserService {
     return this.http.put<User>(`http://localhost:1337/Users/${UserId}`, user);
   }
 
+  //個人的にこうすればもっと楽に作れたのではないかという反省
+  // setUser(): void {
+  //   this.getUser(parseInt(localStorage.getItem('loginUserId')!)).subscribe(
+  //     (response) => {
+  //       this._loginUser = response;
+  //     }
+  //   );
+  // }
+
   login(identifier: string, password: string) {
     const data = {
       identifier: identifier,
@@ -70,4 +79,8 @@ export class UserService {
       () => new Error('Something bad happened; please try again later.')
     );
   }
+
+  // get loginUser() {
+  //   return this._loginUser;
+  // }
 }

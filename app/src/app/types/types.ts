@@ -9,6 +9,7 @@ export interface User {
   icon_url: string;
   questions: Question[];
   username?: string;
+  following?: number[];
 }
 
 export interface Question {

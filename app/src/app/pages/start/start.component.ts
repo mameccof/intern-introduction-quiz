@@ -17,13 +17,25 @@ export class StartComponent implements OnInit {
   ) {}
 
   profile: User = PROFILE;
+  loginUser: User = PROFILE;
+  loginId: number = parseInt(localStorage.getItem('loginUserId') ?? '0');
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.quizLogicService.initQuiz();
-    this.userService.getUser(id).subscribe((user) => {
-      this.profile = user;
+
+    this.userService.getUser(id).subscribe((userRes) => {
+      this.profile = userRes;
+      this.userService.getUser(this.loginId).subscribe((loginUserRes) => {
+        this.loginUser = loginUserRes;
+        this.loginUser.following?.push(id!);
+        this.userService
+          .putUser(this.loginUser, this.loginId)
+          .subscribe((user) => {
+            console.log(user);
+          });
+      });
     });
   }
 
