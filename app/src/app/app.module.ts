@@ -35,6 +35,9 @@ import { IconDialogComponent } from './components/icon-dialog/icon-dialog.compon
 
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { ScannerComponent } from './components/scanner/scanner.component';
+
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     QrDialogComponent,
     IconDialogComponent,
     ConfirmDialogComponent,
+    ScannerComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +76,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     MatFormFieldModule,
     MatDialogModule,
     HttpClientModule,
+    ZXingScannerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
