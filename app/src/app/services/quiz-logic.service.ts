@@ -34,7 +34,11 @@ export class QuizLogicService {
   // これから出題する問題の取得、出題数、正答数を初期化
   startQuiz(userId: number) {
     this.quizService.getQuizzes(userId).subscribe((data) => {
-      this._quizzes = data;
+      const sortedQuizzes = data.sort(function (first, second) {
+        return first.order - second.order;
+      });
+
+      this._quizzes = sortedQuizzes;
       this._questionCount = 1;
       this._correctCount = 0;
       this._isQuizzing = true;
