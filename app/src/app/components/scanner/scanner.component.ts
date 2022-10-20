@@ -36,6 +36,6 @@ export class ScannerComponent implements OnDestroy {
     this._qrstring = result;
     const url_sliced: string[] = this._qrstring.split('/');
     console.log(`/start/${url_sliced[2]}`);
-    // this.router.navigate([`/start/${url_sliced[2]}`]);
+    this.router.navigate([`/start/${url_sliced[2]}`]);
   }
 }
