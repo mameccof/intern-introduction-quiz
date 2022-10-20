@@ -1,7 +1,10 @@
 <div class="centering-objects">
-  <div class="back-button-spacer">
+  <div class="back-button-spacer mb-5per">
     <button mat-raised-button routerLink="/home" class="small-button">やめる</button>
   </div>
+  <h1 style="align-self:flex-start; margin-left:10%;">
+    第{{questionCount}}問
+  </h1>
   <mat-card class="basic-card">
     {{quiz?.question}}
   </mat-card>
