@@ -39,6 +39,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { ScannerComponent } from './components/scanner/scanner.component';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { ScannerDialogComponent } from './components/scanner-dialog/scanner-dialog.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     IconDialogComponent,
     ConfirmDialogComponent,
     ScannerComponent,
+    ScannerDialogComponent,
   ],
   imports: [
     BrowserModule,
