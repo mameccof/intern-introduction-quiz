@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 import { Result } from '@zxing/library';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scanner',
@@ -8,11 +9,10 @@ import { Result } from '@zxing/library';
   styleUrls: ['./scanner.component.scss'],
 })
 export class ScannerComponent implements OnDestroy {
+  constructor(private router: Router) {}
   @ViewChild('scanner') private scanner!: ZXingScannerComponent;
 
   hasDevices!: boolean;
-  hasPermission!: boolean;
-  qrResultString!: string;
 
   _qrstring!: string;
 
@@ -25,9 +25,6 @@ export class ScannerComponent implements OnDestroy {
 
   onDeviceSelectChange(selected: string) {
     console.debug('Selection changed: ', selected);
-    // this.currentDevice = this.availableDevices.find(
-    //   (device) => device.deviceId === selected
-    // );
   }
 
   onCamerasFound(devices: MediaDeviceInfo[]) {
@@ -36,7 +33,9 @@ export class ScannerComponent implements OnDestroy {
   }
 
   onScanSuccess(result: string) {
-    console.log(result);
     this._qrstring = result;
+    const url_sliced: string[] = this._qrstring.split('/');
+    console.log(`/start/${url_sliced[2]}`);
+    // this.router.navigate([`/start/${url_sliced[2]}`]);
   }
 }

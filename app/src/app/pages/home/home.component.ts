@@ -57,20 +57,12 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(QrDialogComponent, {
       width: '250px',
     });
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
-    });
   }
 
   openScannerDialog(): void {
     const dialogRef = this.dialog.open(ScannerDialogComponent, {
       width: '300px',
       height: '350px',
-    });
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
     });
   }
 
