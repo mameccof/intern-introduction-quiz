@@ -10,6 +10,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
@@ -77,6 +78,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     MatDialogModule,
     HttpClientModule,
     ZXingScannerModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

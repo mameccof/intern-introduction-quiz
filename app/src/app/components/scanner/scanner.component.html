@@ -1,1 +1,14 @@
-<p>scanner works!</p>
+<mat-form-field>
+
+<mat-select (valueChange)="onDeviceSelectChange($event)">
+  <mat-option value="" >No Device Selected</mat-option>
+  <mat-option *ngFor="let device of availableDevices" [value]="device.deviceId">{{ device.label }}</mat-option>
+</mat-select>
+
+</mat-form-field>
+<zxing-scanner #scanner (camerasFound)="onCamerasFound($event)" (scanSuccess)="onScanSuccess($event)"
+  [device]="currentDevice">
+</zxing-scanner>
+<div *ngIf="_qrstring">
+  取得結果：{{_qrstring}}
+</div>
