@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
-import { Result } from '@zxing/library';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,8 +33,8 @@ export class ScannerComponent implements OnDestroy {
 
   onScanSuccess(result: string) {
     this._qrstring = result;
-    const url_sliced: string[] = this._qrstring.split('/');
-    console.log(`/start/${url_sliced[2]}`);
-    this.router.navigate([`/start/${url_sliced[2]}`]);
+    const url_splited: string[] = this._qrstring.split('/');
+    console.log(`/start/${url_splited.pop()}`);
+    this.router.navigate([`/start/${url_splited.pop()}`]);
   }
 }
