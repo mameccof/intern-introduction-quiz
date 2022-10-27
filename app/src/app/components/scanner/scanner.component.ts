@@ -34,7 +34,6 @@ export class ScannerComponent implements OnDestroy {
   onScanSuccess(result: string) {
     this._qrstring = result;
     const url_splited: string[] = this._qrstring.split('/');
-    console.log(`/start/${url_splited.pop()}`);
     this.router.navigate([`/start/${url_splited.pop()}`]);
   }
 }
