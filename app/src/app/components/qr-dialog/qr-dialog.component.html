@@ -1,1 +1,6 @@
-<p>ダイアログです</p>
+<p style="text-align: center;">QRを読み取ってもらおう</p>
+<qrcode [qrdata]="startURL" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+<p style="text-align: center;">または以下のリンクを送ろう</p>
+<p style="text-align: center;">
+  <a href="{{startURL}}">{{startURL}}</a>
+</p>

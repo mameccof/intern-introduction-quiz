@@ -16,7 +16,7 @@ export class QuizComponent implements OnInit {
 
   quiz?: Question;
   questionCount?: number;
-  selectedSelection?: number;
+  selectedSelection: number = 0;
 
   ngOnInit(): void {
     if (this.quizLogicService.isQuizzing) {
@@ -33,6 +33,10 @@ export class QuizComponent implements OnInit {
 
   //TODO 選択していない状態で遷移できないようにする
   sendAnswer() {
-    this.router.navigate(['explanation/' + this.selectedSelection]);
+    if (this.selectedSelection !== 0) {
+      this.router.navigate(['explanation/' + this.selectedSelection]);
+    } else {
+      console.log('選択肢未選択');
+    }
   }
 }

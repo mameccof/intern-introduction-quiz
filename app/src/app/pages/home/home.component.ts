@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
 
   openQrDialog(): void {
     const dialogRef = this.dialog.open(QrDialogComponent, {
-      width: '250px',
+      width: '300px',
     });
   }
 

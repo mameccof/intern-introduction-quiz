@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Question } from '../types/types';
 import { Observable } from 'rxjs';
-import { Route, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,38 +12,38 @@ export class QuizService {
 
   deleteQuestion(questionId: number) {
     return this.http.delete<Question>(
-      'http://localhost:1337/Questions/' + questionId
+      `${environment.API_URL}/Questions/${questionId}`
     );
   }
 
   postQuiz(question: Question) {
     return this.http.post<Question>(
-      'http://localhost:1337/Questions/',
+      `${environment.API_URL}/Questions/`,
       question
     );
   }
 
   getQuiz(questionId: number): Observable<Question> {
     return this.http.get<Question>(
-      'http://localhost:1337/Questions/' + questionId
+      `${environment.API_URL}/Questions/${questionId}`
     );
   }
 
   getQuizzes(userId: number): Observable<Question[]> {
     return this.http.get<Question[]>(
-      'http://localhost:1337/Questions?user=' + userId
+      `${environment.API_URL}/Questions?user=${userId}`
     );
   }
 
   getTemplate() {
     return this.http.get<Question>(
-      'http://localhost:1337/Template-questions/random/'
+      `${environment.API_URL}/Template-questions/random/`
     );
   }
 
   putQuiz(question: Question, questionId: number) {
     return this.http.put<Question>(
-      'http://localhost:1337/Questions/' + questionId,
+      `${environment.API_URL}/Questions/${questionId}`,
       question
     );
   }

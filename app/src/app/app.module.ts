@@ -35,6 +35,7 @@ import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
 import { IconDialogComponent } from './components/icon-dialog/icon-dialog.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { QRCodeModule } from 'angularx-qrcode';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
 
@@ -81,6 +82,7 @@ import { ScannerDialogComponent } from './components/scanner-dialog/scanner-dial
     HttpClientModule,
     ZXingScannerModule,
     MatSelectModule,
+    QRCodeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
