@@ -2,10 +2,13 @@
   <app-profile-card [profile]="loginUser" [isEditProfile]=true></app-profile-card>
 
   <div class="mb-5per">
-    <button mat-raised-button routerLink="/profile-list" class="basic-button">登録した知り合い一覧</button>
+    <button mat-raised-button routerLink="/profile-list" class="basic-button">プロフィール一覧</button>
+  </div>
+  <div class="mb-5per">
+    <button mat-raised-button (click)="openQrDialog()" class="basic-button">友達へ出題</button>
   </div>
   <div>
-    <button mat-raised-button (click)="openDialog()" class="basic-button">友達に問題を解いてもらう</button>
+    <button mat-raised-button (click)="openScannerDialog()" class="basic-button">友達の問題を回答</button>
   </div>
 
   <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;" class="mt-5per mb-5per">

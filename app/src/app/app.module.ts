@@ -10,6 +10,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
@@ -36,6 +37,10 @@ import { IconDialogComponent } from './components/icon-dialog/icon-dialog.compon
 import { HttpClientModule } from '@angular/common/http';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { ScannerComponent } from './components/scanner/scanner.component';
+
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { ScannerDialogComponent } from './components/scanner-dialog/scanner-dialog.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +62,8 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     QrDialogComponent,
     IconDialogComponent,
     ConfirmDialogComponent,
+    ScannerComponent,
+    ScannerDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +80,8 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     MatFormFieldModule,
     MatDialogModule,
     HttpClientModule,
+    ZXingScannerModule,
+    MatSelectModule,
     QRCodeModule,
   ],
   providers: [],

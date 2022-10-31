@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { QrDialogComponent } from '../../components/qr-dialog/qr-dialog.component';
 import { UserService } from '../../services/user.service';
 import { QuizService } from 'src/app/services/quiz.service';
+import { ScannerDialogComponent } from 'src/app/components/scanner-dialog/scanner-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -52,13 +53,16 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  openDialog(): void {
+  openQrDialog(): void {
     const dialogRef = this.dialog.open(QrDialogComponent, {
       width: '300px',
     });
+  }
 
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
+  openScannerDialog(): void {
+    const dialogRef = this.dialog.open(ScannerDialogComponent, {
+      width: '300px',
+      height: '350px',
     });
   }
 
